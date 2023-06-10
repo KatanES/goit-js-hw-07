@@ -5,8 +5,6 @@ console.log(galleryItems);
 
 const gallery = document.querySelector(".gallery");
 
-// gallery.addEventListener("click", () => {});
-
 const makeGalleryCard = galleryItems.map(
   (galleryItems) =>
     `<li class="gallery__item">
