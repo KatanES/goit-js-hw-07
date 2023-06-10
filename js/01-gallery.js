@@ -28,14 +28,45 @@ gallery.addEventListener("click", (e) => {
   if (target.dataset.source) {
     console.log("click");
   }
-  basicLightbox
-    .create(
-      `
-    <img src=${target.dataset.source} width="100%" height="100%">
-    </img>
-`
-    )
-    .show();
-});
+  //   basicLightbox
+  //     .create(
+  //       `
+  //     <img src=${target.dataset.source} width="100%" height="100%">
+  //     </img>
+  // `
+  //     )
+  //     .show();
 
-console.log(makeGalleryCard);
+  const modalGallery = `<img
+        width=100%"
+        height="100%"
+        src = ${e.target.dataset.source}
+      >`;
+
+  let modalImg;
+
+  const onEscKeyPress = (e) => {
+    if (e.key === "Escape") modalImg.close();
+  };
+  modalImg = basicLightbox.create(modalGallery, {
+    onShow: () => gallery.addEventListener("keydown", onEscKeyPress),
+  });
+  modalImg.show();
+});
+// console.log(makeGalleryCard);
+
+// function closeModal() {
+//   gallery.style.display = "none";
+// }
+
+// gallery.addEventListener("keydown", function (e) {
+//   if (e.key === "Escape") {
+//     closeModal();
+//   }
+// });
+
+// gallery.addEventListener("keydown", (e) => {
+//   if (e.key === "Escape") {
+//     e.close();
+//   }
+// });
