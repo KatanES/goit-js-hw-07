@@ -26,6 +26,10 @@ gallery.addEventListener("click", (e) => {
   if (target.dataset.source) {
     console.log("click");
   }
+
+  if (target.dataset.source !== "Img") {
+    return;
+  }
   //   basicLightbox
   //     .create(
   //       `
